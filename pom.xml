@@ -10,8 +10,8 @@
     <groupId>com.iqkv</groupId>
     <artifactId>foundation-audit-spi</artifactId>
     <version>0.0.0-SNAPSHOT</version>
-    <name>Servicename Backend</name>
-    <description>API for implementing servicename.</description>
+    <name>Foundation Audit SPI</name>
+    <description>Service Provider Interface for extensible audit backends.</description>
     <developers>
 
     </developers>
@@ -37,6 +37,15 @@
         <dependency>
             <groupId>jakarta.annotation</groupId>
             <artifactId>jakarta.annotation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-commons</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.iqkv</groupId>
+            <artifactId>foundation-audit-model</artifactId>
+            <version>${project.version}</version>
         </dependency>
         
     </dependencies>

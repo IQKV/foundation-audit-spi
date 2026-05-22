@@ -29,8 +29,9 @@
  *
  * <h2>Main Components</h2>
  * <ul>
- *   <li>{@link AuditLogService} — Primary interface for logging and querying activity</li>
- *   <li>{@link AuditEventPublisher} — Used by other services (IAM, Billing, etc.) to publish events</li>
+ *   <li>{@link AuditLogService} — Primary interface for logging activity</li>
+ *   <li>{@link AuditEventPublisher} — Interface for publishing events to external brokers</li>
+ *   <li>{@link ActivityLogRepository} — Contract for audit log persistence and retrieval</li>
  *   <li>{@link AuditProvider} — Marker interface for Spring Boot auto-configuration</li>
  * </ul>
  *

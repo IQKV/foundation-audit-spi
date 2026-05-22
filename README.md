@@ -1,65 +1,33 @@
-# Project Name 🚀
+# Foundation Audit SPI 🔌
 
-<!-- TEMPLATE: This README.template.md is a starter template. Copy parts into your real README.md and replace placeholders. -->
+Service Provider Interface (SPI) for the IQKV platform's audit logging system. Defines the core contracts and interfaces that decouple domain services from specific audit storage and publishing implementations.
 
-<details>
-  <summary><strong>How to use this template (click to expand)</strong></summary>
+## About
 
-1. Rename the title above to your project name and optionally add a logo right below it.
-2. Add badges (build, tests, coverage, license) under the title.
-3. Fill each section below with your actual project content (keep the section order if you like it).
-4. Replace placeholder code blocks and bullet points with real commands and steps.
-5. Keep the "Template Usage" links if you want quick access to template docs, or remove them in your final README.md.
-6. Remove this guidance block after you finish customizing.
+The Audit SPI library enforces the "No Vendor Lock-in" philosophy for platform compliance:
 
-</details>
+- **Audit Storage Abstraction** — defines `AuditStore` and `AuditLogService` interfaces, allowing backends (PostgreSQL, Elasticsearch, etc.) to be swapped without changing business logic.
+- **Publisher Contracts** — provides the `AuditEventPublisher` interface for services to emit audit events consistently.
+- **Provider Discovery** — utilizes standard Java SPI or Spring Boot auto-configuration patterns to load the active audit provider at runtime.
+- **Search & Retention API** — standardizes how audit logs are searched, filtered, and purged, regardless of the underlying data store.
+- **Extensibility** — makes it easy for platform users to plug in custom audit providers (e.g., for integration with enterprise SIEM systems).
 
-- Add your project logo.
-- Write a short introduction to the project.
-- If you are using badges, add them here.
+## Quick Links
 
-<details>
-  <summary><strong>Badge examples (optional)</strong></summary>
-
-- Build: <code>![CI](https://img.shields.io/github/actions/workflow/status/ORG/REPO/ci.yml?label=CI)</code>
-- Tests: <code>![Tests](https://img.shields.io/badge/tests-passing-brightgreen)</code>
-- Coverage: <code>![Coverage](https://img.shields.io/badge/coverage-100%25-brightgreen)</code>
-- License: <code>![License](https://img.shields.io/github/license/ORG/REPO)</code>
-
-</details>
-
-## :beginner: About
-
-Add a detailed introduction about the project here, everything you want the reader to know.
-
-## 📚 Documentation
-
-- [API Documentation](docs/api/README.md)
-- [Architecture Overview](docs/architecture/README.md)
-- [Deployment Guide](docs/deployment/README.md)
+- [API Documentation](./docs/api/README.md)
+- [Architecture Overview](./docs/architecture/README.md)
+- [Deployment Guide](./docs/deployment/README.md)
 - [Contributing Guidelines](.github/CONTRIBUTING.md)
 
----
+## Tech Stack
 
-<details>
-  <summary><strong>✅ Pre-publish checklist (remove in final README)</strong></summary>
+- Java 25
+- Spring Data Commons (for pagination contracts)
+- Maven 3.9+
 
-- [ ] Title updated and logo added
-- [ ] Badges added (CI, tests, coverage, license)
-- [ ] About/Usage/Installation/Commands completed
-- [ ] Development prerequisites and environment documented
-- [ ] Architecture notes reflect your stack and modules
-- [ ] Links verified (Getting Started, docs, external resources)
+## Development
 
-</details>
-
----
-
-## 🧩 Boilerplate Architecture
-
-- **Project Structure**: Tactical DDD with bounded contexts, hexagonal architecture (domain/application/adapter layers)
-- **GitHub Integration**: Issue templates, labels, and workflows
-- **Quality Tools**: Code formatting, linting, and testing setup
-- **Documentation**: Community guidelines and contribution process
-
-> See [AGENTS.md](AGENTS.md) for detailed project structure and DDD patterns.
+```bash
+# Build and install to local Maven repository
+./mvnw clean install -Dcheckstyle.skip=true
+```

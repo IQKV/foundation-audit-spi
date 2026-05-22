@@ -33,6 +33,7 @@
  *   <li>{@link AuditEventPublisher} — Interface for publishing events to external brokers</li>
  *   <li>{@link ActivityLogRepository} — Contract for audit log persistence and retrieval</li>
  *   <li>{@link AuditProvider} — Marker interface for Spring Boot auto-configuration</li>
+ *   <li>{@code context/} — Technical utilities for cross-service context propagation</li>
  * </ul>
  *
  * <h2>Usage</h2>

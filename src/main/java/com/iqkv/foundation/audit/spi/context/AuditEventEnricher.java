@@ -41,8 +41,8 @@ public final class AuditEventEnricher {
     if (payload instanceof AuditableEvent auditable) {
       final AuditActor actor = AuditContextHolder.getContext();
       if (actor != null) {
-          auditable.setActor(actor);
-          log.debug("Enriched event with audit actor: ip={}, ua={}", actor.ipAddress(), actor.userAgent());
+        auditable.setActor(actor);
+        log.debug("Enriched event with audit actor: ip={}, ua={}", actor.ipAddress(), actor.userAgent());
       }
     }
   }

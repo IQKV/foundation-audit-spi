@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.iqkv</groupId>
     <artifactId>foundation-audit-spi</artifactId>
-    <version>0.24.0</version>
+    <version>0.24.0-SNAPSHOT</version>
     <name>Foundation Audit SPI</name>
     <description>Service Provider Interface for extensible audit backends.</description>
     <url>https://github.com/IQKV/foundation-audit-spi</url>

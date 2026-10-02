@@ -59,6 +59,7 @@ src/main/java/com/iqkv/foundation/audit/spi/
 ### ThreadLocal contract (`AuditContextHolder`)
 
 `AuditContextHolder` uses `ThreadLocal<AuditActor>`. Callers must:
+
 1. Set context at request entry (`AuditContextInterceptor.preHandle`)
 2. Clear context at request exit (`AuditContextInterceptor.afterCompletion`) — **never skip the clear**
 3. Never pass the holder across async boundaries without explicit propagation
@@ -144,10 +145,11 @@ Format: `type(scope): subject`
 - Types: `feat`, `fix`, `improvement`, `refactor`, `docs`, `test`, `chore`, `ci`, `revert`
 - Scope: affected interface or package (e.g., `audit-log-service`, `context`, `enricher`, `publisher`)
 - For `fix`: describe the symptom and trigger, not the code change
-  - ✅ `fix(context): thread-local not cleared after async dispatch causes actor leak`
-  - ❌ `fix(context): add remove() call in afterCompletion`
+    - ✅ `fix(context): thread-local not cleared after async dispatch causes actor leak`
+    - ❌ `fix(context): add remove() call in afterCompletion`
 
 Examples:
+
 - `feat(audit-log-service): add batch log method for bulk event ingestion`
 - `fix(context-interceptor): actor not cleared when response is committed early`
 - `refactor(audit-provider): extract getName into separate NamedProvider interface`
